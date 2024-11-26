@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include "get_function.c"
-#include "start_func.c"
+#include "start_function.c"
 
 /**
 * _printf- 

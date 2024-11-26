@@ -1,6 +1,6 @@
 #include <string.h>
 #include <stdarg.h>
-#include "start_func.c"
+#include "start_function.c"
 
 int (*get_func(char *s)(va_list args))
 {

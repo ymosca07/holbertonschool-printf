@@ -4,9 +4,7 @@ char _putchar(char c)
 {
 	write(1, &c, 1);
 
-	i++;
-
-	return (c)
+	return (c);
 }
 
 char *_putstr(char *str)
