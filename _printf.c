@@ -19,10 +19,8 @@ int _printf(const char *format, ...)
 
 	while (format[i] != '\0') // Parcourir la chaine de caracteres format //
 	{
-		if ((format[i] == "%") // Sert a verifier le modulo et le specificateur //
-		&& ((format[i + 1] == 'c')
-		|| (format[i + 1] == 'd')
-		|| (format[i + 1] == 'i')))
+		if ((format[i] == '%') // Sert a verifier le modulo et le specificateur //
+		&& (format[i + 1] == get_func(format[i])))
 		{
 			va_arg(args, int);
 			j++;

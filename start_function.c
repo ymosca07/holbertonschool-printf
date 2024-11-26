@@ -1,10 +1,11 @@
 #include <unistd.h>
 
-char _putchar(char c)
+int _putchar(char c)
 {
-	write(1, &c, 1);
-
-	return (c);
+	int i = 0;
+		write(1, &c, 1);
+		i++;
+	return (i);
 }
 
 char *_putstr(char *str)
