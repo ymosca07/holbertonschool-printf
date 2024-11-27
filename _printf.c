@@ -18,6 +18,12 @@ int _printf(const char *format, ...)
 	va_list args;
 	va_start(args, format);
 
+	if (format == NULL)
+	{
+		write(1, "Error!\n", 7);
+		return (-1);
+	}
+
 	while (format[i] != '\0') /* Parcourir la chaine de caracteres format */
 	{
 		if (format[i] == '%') /* Sert a verifier le modulo et le specificateur */
