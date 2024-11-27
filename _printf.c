@@ -1,6 +1,5 @@
 #include <unistd.h>
-#include "get_function.c"
-#include "start_function.c"
+#include "main.h"
 
 /**
 * _printf- 
@@ -12,39 +11,29 @@
 int _printf(const char *format, ...)
 
 {
-	int i = 0; // Index de la chaine de caracteres format //
-	int j = 0; // Valeur a retourner (taille du retour) //
+	int i = 0; /* Index de la chaine de caracteres format */
+	char temp[2]; /* Variable temporaire qui recupere le specificateur, soit format + 1 */
+	int (*func)(va_list) = get_func(temp);
 	va_list args;
 	va_start(args, format);
 
-	while (format[i] != '\0') // Parcourir la chaine de caracteres format //
+	while (format[i] != '\0') /* Parcourir la chaine de caracteres format */
 	{
-		if ((format[i] == '%') // Sert a verifier le modulo et le specificateur //
-		&& (format[i + 1] == get_func(format[i])))
+		if (format[i] == '%') /* Sert a verifier le modulo et le specificateur */
 		{
-			va_arg(args, int);
-			j++;
+			temp[0] = format[i + 1];
+			temp[1] = '\0';
 
-			i = i + 2;
+			i += 2; /* Sert a sauter les deux caracteres % + specificateur */
+			i += func(args);
 		}
-		if ((format[i] >= 'A' && format[i] <= 'Z') // Sert a imprimer des lettres //
-		|| (format[i] >= 'a' && format[i] <= 'z'))
-		{
-			_putchar(i);
-			j++;
-		}
-		else if(format[i] >= '0' && format[i] <= '9') // Sert a imprimer des chiffres //
-		{
-			_putchar(i);
-			j++;
-		}
-		else // Sert a imprimer une erreur //
+		else /* Sert a imprimer une erreur */
 		{
 			write(1, "This is an error\n", 17);
+			return (-1);
 		}
 		i++;
-		va_end(args);
-
-		return (j);
 	}
+	va_end(args);
+	return (i);
 }
