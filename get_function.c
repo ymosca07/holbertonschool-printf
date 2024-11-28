@@ -4,22 +4,22 @@
 
 /* Definition de la structure func_t */
 typedef struct func {
-    char *mod;               
-    int (*f)(va_list args);         
-	} func_t;
+	char *mod;
+    	int (*f)(va_list args);
+		} func_t;
 
 int _putchar_wrapper(va_list args);
 int _putstr_wrapper(va_list args);
 
-int (*get_func(char *s))(va_list args) 
+int (*get_func(char *s))(va_list args)
 {
-    int i = 0;
+	int i = 0;
 
  /* Tableau des fonctions */
     func_t func[] = {
-        {"c", _putchar_wrapper},
-        {"s", _putstr_wrapper},
-        {NULL, NULL} /* Fin du tableau */
+	    {"c", _putchar_wrapper},
+	{"s", _putstr_wrapper},
+	{NULL, NULL} /* Fin du tableau */
     };
 
     if (s == NULL)
