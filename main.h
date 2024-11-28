@@ -10,6 +10,8 @@ char *_putstr(char *str);
 int _putstr_wrapper(va_list args);
 int _putstr_wrapper(va_list args);
 int my_strcmp(char *s1, char *s2);
+int _putnbr(int num);
+int _putnbr_wrapper(va_list args);
 
 /**
  * struct func - Description

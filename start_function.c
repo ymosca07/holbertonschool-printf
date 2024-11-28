@@ -62,3 +62,34 @@ int _putstr_wrapper(va_list args)
 
 	return (_putstr(str));
 }
+
+/**
+ * _putnbr - description
+ * @args: arguments
+ * Desc: putnbr pour entier
+ * Return: len
+ */
+
+int _putnbr(int num)
+{
+	int len = 0;
+
+	if (num == -2147483648)
+	{
+		len += _putstr("-2147483648");
+		return (len);
+	}
+
+        if (num < 0)
+        {
+		len += _putchar('-');
+		num = -num;
+        }
+
+	if (num / 10 != 0)
+        {
+                len += _putnbr(num / 10);
+        }
+        len += _putchar((num % 10) + '0');
+        return (len);
+}

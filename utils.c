@@ -1,3 +1,6 @@
+#include <stdarg.h>
+#include "main.h"
+
 /**
  * my_strcmp - description
  * @s1: chaine de caracteres
@@ -19,4 +22,11 @@ int my_strcmp(char *s1, char *s2)
 		s2++;
 	}
 	return (*s1 - *s2);
+}
+
+int _putnbr_wrapper(va_list args)
+{
+	int num = va_arg(args, int);
+
+	return (_putnbr(num));
 }

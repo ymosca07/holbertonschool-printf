@@ -20,6 +20,8 @@ int (*get_func(char *s))(va_list args)
 func_t func[] = {
 {"c", _putchar_wrapper},
 {"s", _putstr_wrapper},
+{"d", _putnbr_wrapper},
+{"i", _putnbr_wrapper},
 {NULL, NULL} /* Fin du tableau */
 };
 

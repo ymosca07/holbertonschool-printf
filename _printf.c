@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == '%')
 			{ _putchar(temp[0]);
-				count += 2;
+				count += 1;
 				i += 2;
 			}
 			else /* Specificateur invalide */
