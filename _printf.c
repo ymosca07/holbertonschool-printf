@@ -17,43 +17,33 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-
 	while (format[i] != '\0') /* Parcourir la chaine de caracteres format */
 	{
-		/* Sert a verifier le modulo et le specificateur */
-
-		if (format[i] == '%')
+		if (format[i] == '%') /* Verif quand i est % */
 		{
 			temp[0] = format[i + 1];
 			temp[1] = '\0';
-
 			if (format[i + 1] == '\0')
 			return (0);
-
 			func = get_func(temp);
-			
-			if (func != NULL && format[i + 1] != '%')
-			{
-				count += func(args);
+			if (func != NULL)
+			{ count += func(args);
 				i += 2; /* Sert a sauter les deux caracteres % + specificateur */
 			}
 			else if (format[i + 1] == '%')
-			{
-				_putchar(temp[0]);
+			{ _putchar(temp[0]);
 				count += 2;
 				i += 2;
 			}
 			else /* Specificateur invalide */
-			{
-				_putchar('%');
+			{ _putchar('%');
 				_putchar(temp[0]);
 				count += 2;
 				i += 2;
 			}
 		}
 		else
-		{
-			_putchar(format[i]); /* Imprimer si different de % */
+		{ _putchar(format[i]); /* Imprimer si different de % */
 			i++;
 			count++;
 		}

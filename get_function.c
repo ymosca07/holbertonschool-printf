@@ -5,6 +5,13 @@
 int _putchar_wrapper(va_list args);
 int _putstr_wrapper(va_list args);
 
+/**
+ * get_func - Description
+ * @s: Chaine de caractères représentant le spécificateur
+ * Description: Compare specificateur et s
+ * Return: NULL ou pointeur
+ */
+
 int (*get_func(char *s))(va_list args)
 {
 	int i = 0;

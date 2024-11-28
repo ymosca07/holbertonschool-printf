@@ -11,7 +11,14 @@ int _putstr_wrapper(va_list args);
 int _putstr_wrapper(va_list args);
 int my_strcmp(char *s1, char *s2);
 
-/* Definition de la structure func_t */
+/**
+ * struct func - Description
+ * @mod: chaîne de caracteres
+ * @f: pointeur
+ * Description: typedef d'une structure
+ * Return: Nothing
+ */
+
 typedef struct func
 {
 char *mod;
