@@ -9,7 +9,6 @@
 */
 
 int _printf(const char *format, ...)
-
 {
 	int i = 0; /* Index de la chaine de caracteres format */
 	int count = 0; /* Nombre de caracteres printes */
@@ -32,16 +31,31 @@ int _printf(const char *format, ...)
 			temp[0] = format[i + 1];
 			temp[1] = '\0';
 
-			func = get_func(temp);
+			if (format[i + 1] == '\0')
+			return (-1);
 
+			func = get_func(temp);
+			
 			if (func != NULL)
 			{
 				count += func(args);
 				i += 2; /* Sert a sauter les deux caracteres % + specificateur */
 			}
+			else if (format[i + 1] == '%')
+			{
+				_putchar('%');
+				count += 2;
+				i += 2;
+			}
+			else /* Specificateur invalide */
+			{
+				_putchar('%');
+				_putchar(temp[0]);
+				count += 2;
+				i += 2;
+			}
 		}
-
-		_putchar(format[i]); /* Imprime si format[i] different de % */
+		_putchar(format[i]); /* Imprimer si different de % */
 		i++;
 		count++;
 	}

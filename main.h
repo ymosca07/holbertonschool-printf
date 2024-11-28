@@ -9,6 +9,7 @@ int _putchar(char c);
 char *_putstr(char *str);
 int _putstr_wrapper(va_list args);
 int _putstr_wrapper(va_list args);
+int my_strcmp(char *s1, char *s2);
 
 /* Definition de la structure func_t */
 typedef struct func
