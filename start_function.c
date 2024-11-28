@@ -33,4 +33,4 @@ int _putstr_wrapper(va_list args)
 	char *str = va_arg(args, char *);
 
 	return (_putstr(str));
-}
+} 

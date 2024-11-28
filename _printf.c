@@ -20,24 +20,26 @@ int _printf(const char *format, ...)
 
 	while (format[i] != '\0') /* Parcourir la chaine de caracteres format */
 	{
-		if (format[i] == '%') /* Sert a verifier le modulo et le specificateur */
+		/* Sert a verifier le modulo et le specificateur */
+
+		if (format[i] == '%')
 		{
 			temp[0] = format[i + 1];
 			temp[1] = '\0';
 
 			if (format[i + 1] == '\0')
-			return (-1);
+			return (0);
 
 			func = get_func(temp);
 			
-			if (func != NULL)
+			if (func != NULL && format[i + 1] != '%')
 			{
 				count += func(args);
 				i += 2; /* Sert a sauter les deux caracteres % + specificateur */
 			}
 			else if (format[i + 1] == '%')
 			{
-				_putchar('%');
+				_putchar(temp[0]);
 				count += 2;
 				i += 2;
 			}
@@ -49,9 +51,12 @@ int _printf(const char *format, ...)
 				i += 2;
 			}
 		}
-		_putchar(format[i]); /* Imprimer si different de % */
-		i++;
-		count++;
+		else
+		{
+			_putchar(format[i]); /* Imprimer si different de % */
+			i++;
+			count++;
+		}
 	}
 	va_end(args);
 	return (count); /* Nombre de caracteres imprimes */
