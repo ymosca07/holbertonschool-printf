@@ -24,11 +24,13 @@ int _putstr(char *str)
 int _putchar_wrapper(va_list args)
 {
 	char c = (char)va_arg(args, int);
-	return _putchar(c);
+
+	return (_putchar(c));
 }
 
 int _putstr_wrapper(va_list args)
 {
 	char *str = va_arg(args, char *);
-	return _putstr(str);
+
+	return (_putstr(str));
 }
