@@ -28,7 +28,7 @@ int _putstr(char *str)
 	int i = 0;
 	
 	if (str == NULL)
-	return (NULL);
+	return (0);
 
 	while (str[i] != '\0')
 	{
