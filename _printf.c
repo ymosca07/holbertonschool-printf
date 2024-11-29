@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 			temp[0] = format[i + 1];
 			temp[1] = '\0';
 			if (format[i + 1] == '\0')
-			return (0);
+			return (-1);
 			func = get_func(temp);
 			if (func != NULL)
 			{ count += func(args);
@@ -32,20 +32,17 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == '%')
 			{ _putchar(temp[0]);
-				count += 1;
-				i += 2;
+				count += 1, i += 2;
 			}
 			else /* Specificateur invalide */
 			{ _putchar('%');
 				_putchar(temp[0]);
-				count += 2;
-				i += 2;
+				count += 2, i += 2;
 			}
 		}
 		else
 		{ _putchar(format[i]); /* Imprimer si different de % */
-			i++;
-			count++;
+			i++, count++;
 		}
 	}
 	va_end(args);
