@@ -26,6 +26,9 @@ int _putchar(char c)
 int _putstr(char *str)
 {
 	int i = 0;
+	
+	if (str == NULL)
+	return (NULL);
 
 	while (str[i] != '\0')
 	{
@@ -65,7 +68,7 @@ int _putstr_wrapper(va_list args)
 
 /**
  * _putnbr - description
- * @args: arguments
+ * @num: integer
  * Desc: putnbr pour entier
  * Return: len
  */
@@ -80,16 +83,16 @@ int _putnbr(int num)
 		return (len);
 	}
 
-        if (num < 0)
-        {
+	if (num < 0)
+	{
 		len += _putchar('-');
 		num = -num;
-        }
+	}
 
 	if (num / 10 != 0)
-        {
-                len += _putnbr(num / 10);
-        }
-        len += _putchar((num % 10) + '0');
-        return (len);
+	{
+		len += _putnbr(num / 10);
+	}
+	len += _putchar((num % 10) + '0');
+	return (len);
 }
