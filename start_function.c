@@ -12,7 +12,7 @@ int _putchar(char c)
 {
 	int i = 0;
 
-	if (c == NULL)
+	if (c == '\0')
 	return (0);
 		write(1, &c, 1);
 		i++;
@@ -80,7 +80,7 @@ int _putnbr(int num)
 {
 	int len = 0;
 
-	if (num == NULL)
+	if (num == '\0')
 	return (0);
 
 	if (num == -2147483648)
