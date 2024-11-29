@@ -13,7 +13,7 @@ int _putchar(char c)
 	int i = 0;
 
 	if (c == '\0')
-	return (0);
+	return (-1);
 		write(1, &c, 1);
 		i++;
 	return (i);
