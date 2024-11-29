@@ -1,0 +1,57 @@
+.Dt man_3_printf      \" Program name and manual section number
+.Os Darwin
+.Sh NAME                 \" Section Header - required - don't modify
+.Nm _printf(const char *format, ...);
+.Pp
+.Nm _printf
+.Sh DESCRIPTION          \" Section Header - required - don't modify
+function formats and prints data to the standard output, following a format string similar to the standard printf function.
+.Pp
+When no valid specifier is encountered, _printf will print the specifier litteraly.
+.Pp                      \" Inserts a space
+.Sh SPECIFIERS
+
+Valid specifiers :
+.Bl -tag -width -indent  \" Begins a tagged list
+\" Each item preceded by .It macro
+\fB%c\fP is used to print a single character.
+.Pp
+\fB%s\fP Is used to print a string.
+.Pp
+\fB%d\ ,\fB%i\fP is used to print a signed decimal integer.
+.Pp
+\fB%%\fP is used to print a single modulo sign.
+.El                      \" Ends the list
+.Pp
+.Bl -tag -width -indent  \" Differs from above in tag removed
+\fBva_list\fP               \"-a flag as a list item
+is  the macro is used to access arguments passed to _printf
+.El                      \" Ends the list
+.Sh  LIBRARY
+    we put #include "main.h" to get the local library that we need for this function
+.Pp
+.Sh RETURN
+Returns the total number of characters printed, excluding the null byte.
+.Sh FILES                \" File used or created by the topic of the man page
+.Bl -tag -width "/Users/joeuser/Library/really_long_file_name" -compact
+.It main.h
+Header containing prototypes of the function used in the program
+.It function_tools.c
+Contains the _putchar function used to print characters to stdout.
+.It _printf.c
+Contains the description of _printf function and all print functions related to it.
+.El                      \" Ends the list
+.Sh EXAMPLES
+if we do _printf("Hello %s", "Everyone") will be good and print "Hello Everyone".
+.Pp
+but if we do _printf ("Hello %k", "Everyone") will print "Hello %k" bescause %k is a non valid specifiers.
+.Pp
+#include "main.h"
+.Pp
+int main(int argc, char **argv) {
+.Pp
+_printf("Hello %s, you are %d years old\n", "Sebas", 47);
+.Pp
+return (0);
+.Pp
+}
