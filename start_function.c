@@ -11,6 +11,9 @@
 int _putchar(char c)
 {
 	int i = 0;
+
+	if (c == NULL)
+	return (0);
 		write(1, &c, 1);
 		i++;
 	return (i);
@@ -76,6 +79,9 @@ int _putstr_wrapper(va_list args)
 int _putnbr(int num)
 {
 	int len = 0;
+
+	if (num == NULL)
+	return (0);
 
 	if (num == -2147483648)
 	{
