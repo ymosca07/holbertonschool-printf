@@ -31,7 +31,7 @@ int _putstr(char *str)
 	int i = 0;
 	
 	if (str == NULL)
-	return (0);
+	write(1, "(null)", 6);
 
 	while (str[i] != '\0')
 	{
